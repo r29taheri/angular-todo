@@ -1,0 +1,27 @@
+.container {
+    padding: 10px 0;
+}
+form {
+    width: 60%;
+    margin: 0 auto;
+}
+.save-btn {
+    background-color: #00C853;
+    margin: 0 auto;
+    display: block;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 1px solid #388E3C;
+    box-shadow: 1px 0 2px #00E676;
+    cursor: pointer;
+    &[disabled] {
+        background-color: #69F0AE;
+        cursor: not-allowed;
+        border: 1px solid #00C853;
+
+    }
+}
+.tasks {
+    width: 95%;
+    margin: 0 auto;
+}

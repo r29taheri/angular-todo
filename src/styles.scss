@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #FAFAFA;
+}
+:focus {
+    outline: none;
+}
+input[type=text], textarea {
+    margin-bottom: 10px;
+    border-radius: 3px;
+    padding: 5px;
+    margin-left: 5px;
+    width: 100%;
+    border: 1px solid #EEEEEE;
+    &.ng-invalid.ng-touched {
+        border: 1px solid #DD2C00;
+    }
+}
+textarea {
+    resize: none;
+}

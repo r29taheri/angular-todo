@@ -1,0 +1,29 @@
+<div class="container">
+    <form #createTask="ngForm" (ngSubmit)="onCreate(createTask)">
+        <div class="form-">
+            <input type="text" id="title"  placeholder="Title" #title="ngModel" ngModel name="title" required>
+        </div>
+        <div>
+            <textarea id="description" rows="4"  placeholder="Describe task here..." ngModel #description="ngModel" name="description"></textarea>
+        </div>
+        <button type="submit" class="save-btn" [disabled]="createTask.invalid">Create</button>
+    </form>
+    <div class="tasks">
+        <div *ngFor="let task of tasks;index as i">
+            <input type="checkbox" [ngModel]="task.done" (change)="onComplete(task)" id="">
+            <p><strong>Title: </strong>{{task.title}}</p>
+            <div *ngIf="editMode !== task.id">
+                <p *ngIf="task.description"><strong>Description: </strong>{{task.description}}</p>
+                <button (click)="editMode = task.id">
+                    <span *ngIf="task.description">Edit Description</span>
+                    <span *ngIf="!task.description">Add Description</span>
+                </button>
+            </div>
+            <div *ngIf="editMode === task.id">
+                <input type="text" #editDescription [value]="task.description">
+                <button (click)="onEdit(task, editDescription)">Save</button>
+            </div>
+            <button (click)="onDelete(task)">Delete</button>
+        </div>
+    </div>
+</div>
